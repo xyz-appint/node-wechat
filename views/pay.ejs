@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>支付</title>
+</head>
+<body>
+<div id="main">
+    <a href="/wechat/refund" id="refundBtn" style="display: none">退款</a>
+    <br/>
+    <br/>
+    <a href="/wechat/closeOrder" >关闭订单</a>
+</div>
+
+<script type="text/javascript">
+
+    function onBridgeReady() {
+
+        WeixinJSBridge.invoke('getBrandWCPayRequest', <%-JSON.stringify(payArgs)%>, function (res) {
+            if (res.err_msg == "get_brand_wcpay_request:ok") {
+                alert("支付成功");
+                document.getElementById('refundBtn').style.display = '';
+                // 这里可以跳转到订单完成页面向用户展示
+            } else {
+                alert("支付失败，请重试" + res.err_msg);
+            }
+        });
+
+    }
+    if (typeof WeixinJSBridge == "undefined") {
+        if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    } else {
+        onBridgeReady();
+    }
+
+</script>
+</body>
+</html>

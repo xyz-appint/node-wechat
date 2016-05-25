@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>用户信息</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+
+        #main {
+            width: 750px;
+            margin: 0 auto;
+            font-size: 14px;
+            font-family: '宋体';
+        }
+
+        .content {
+            margin-top: 5px;
+        }
+
+        .content dt {
+            width: 160px;
+            display: inline-block;
+            text-align: right;
+            float: left;
+
+        }
+
+        .content dd {
+            margin-left: 100px;
+            margin-bottom: 5px;
+        }
+
+
+    </style>
+</head>
+<body >
+<div id="main" >
+        <div id="body" style="clear:left">
+            <dl class="content">
+                <dt>头像：</dt>
+                <dd>
+                    <img src="<%= userInfo.headimgurl %>" width="50" height="auto"/>
+                </dd>
+                <dt>昵称：</dt>
+                <dd>
+                    <%= userInfo.nickname %>
+                </dd>
+                <dt>性别：</dt>
+                <dd>
+                    <% if(userInfo.sex == 1){ %>
+                    男
+                    <% } else{ %>
+                    女
+                    <% } %>
+                </dd>
+
+            </dl>
+
+            <a href='/wechat/order'>支付</a>
+
+        </div>
+
+</div>
+
+</body>
+</html>

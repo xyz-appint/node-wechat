@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
+    <link href="../plugin/sweetalert/sweetalert.min.css" rel="stylesheet">
+
+    <!--<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">-->
+    <style>
+        body {
+            padding-top: 70px;
+            padding-bottom: 30px;
+        }
+
+        .theme-dropdown .dropdown-menu {
+            position: static;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .theme-showcase > p > .btn {
+            margin: 5px 0;
+        }
+
+        .theme-showcase .navbar .container {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container theme-showcase" role="main">
+    <div class="page-header">
+        <h1>功能</h1>
+    </div>
+    <p>
+        <a type="button" id="loginBtn" href="/wechat/user" class="btn btn-lg btn-success">微信登录</a>
+    </p>
+    <p>
+        <a type="button" href="/wechat/order" class="btn btn-lg btn-success">提交订单并付款</a>
+    </p>
+
+</div> <!-- /container -->
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"/>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"/>
+<script src="../plugin/sweetalert/sweetalert.min.js"/>
+
+<script>
+
+    $(function(){
+        var userCallbackUrl = encodeURIComponent('http://app.appint.xyz/wechat/callback');
+        $('#loginBtn').click(function(){
+            alert(userCallbackUrl);
+//
+//            swal({
+//                text: "正在跳转到微信授权页面...",
+//                timer: 3000,
+//                showButtonContainer: false
+//            });
+//            document.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc2b18f415f1d1bed&redirect_uri='+userCallbackUrl+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
+        });
+    });
+</script>
+</body>
+</html>
